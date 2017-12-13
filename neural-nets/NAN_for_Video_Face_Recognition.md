@@ -31,7 +31,10 @@
   	* For verification problem they used siamese structure with contrastive loss
   	* For identification problem they used softmax and cross-entropy as loss function
   * No recurrent blocks, but still input size independent 
+  * Coefficients *a* (from the first attention block) strongly correlates with face quality and it's usefulness for recognition
+  
+    ![Face quality](images/NAN_for_VideoFaceRecognition/NAN_face_quality.png?raw=true "Face quality")
   
 * **Results:**
-  * Shows better results than combining via taking average, median, l2/cos closest, etc.
+  * Shows better results than combining a single embedding by taking mean, median, l2/cos closest, etc.
   * Shows state-of-the-art performance on YouTubeFaces dataset
