@@ -21,12 +21,14 @@
        ![First attention](images/NAN_for_VideoFaceRecognition/NAN_first_attention_formula.png?raw=true "First attention formula") ![First attention](images/NAN_for_VideoFaceRecognition/NAN_first_attention_result.png?raw=true "First attention output")
        
        where *f_k* = embedding for k-th image in a sequence, *a_k* = obtained weight corresponded to k-th embedding
+       
        Trainable parameter is: *q* (shape = embedding size x 1)
   	2. Cascaded two attention blocks – Content-aware aggregation.
   	
   	   ![Second attention](images/NAN_for_VideoFaceRecognition/NAN_second_attention_results.png?raw=true "Second attention output")
   	   
   	   This *q^1* replaces the q in above formula that computes coefficients *a_k*.
+  	   
   	   Trainable parameters are: *W* (shape = embeddings size x embeddings size), *b* (shape = embedding size x 1).
   * Face embedder (could be any CNN) and "Attention blocks" can be trained together in end-to-end manner or separately one-by-one.
   * Training procedure: 
@@ -39,4 +41,4 @@
   
 * **Results:**
   * Shows better results than combining a single embedding by taking mean, median, l2/cos closest, etc.
-  * Shows state-of-the-art performance on YouTubeFaces dataset.
+  * Shows state-of-the-art performance on YouTubeFaces and IJB-A datasets.
