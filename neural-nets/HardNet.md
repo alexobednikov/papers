@@ -39,8 +39,8 @@
   * The bigger batch size, the better:\
   ![BatchSizeInfluence](images/HardNet/BatchSize_influence.png?raw=true "Batch Size Influence")
   * PhotoTour Patch Verification Results\
-  ![PhotoTour Patch Verification]("images/HardNet/PhotoTour results.png"?raw=true "PhotoTour Patch Verification")
+  ![PhotoTour Patch Verification](images/HardNet/PhotoTour_results.png?raw=true "PhotoTour Patch Verification")
   * Oxford 5k, Paris 6k Patch Verification Results\
-  ![Oxford 5k, Paris 6k Patch Verification Results]("images/HardNet/Oxford5k, Paris6k results.png"?raw=true "Oxford 5k, Paris 6k Patch Verification Results")
+  ![Oxford 5k, Paris 6k Patch Verification Results](images/HardNet/Oxford5k,Paris6k_results.png?raw=true "Oxford 5k, Paris 6k Patch Verification Results")
 
 
