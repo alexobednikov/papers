@@ -34,13 +34,13 @@
   * The given loss/mining procedure is fast, but in contrast to other mining strategies doesn't provide hardest positive (furthest from anchor).
 
 * **Results:**
-  * Wide baseline stereo example:
+  * Wide baseline stereo example:\
   ![Example](images/HardNet/Wide_baseline_stereo_examples.png?raw=true "Wide baseline stereo example")
-  * The bigger batch size, the better:
+  * The bigger batch size, the better:\
   ![BatchSizeInfluence](images/HardNet/BatchSize_influence.png?raw=true "Batch Size Influence")
-  * **PhotoTour Patch Verification Results**
+  * PhotoTour Patch Verification Results\
   ![PhotoTour Patch Verification]("images/HardNet/PhotoTour results.png"?raw=true "PhotoTour Patch Verification")
-  * **Oxford 5k, Paris 6k Patch Verification Results**
+  * Oxford 5k, Paris 6k Patch Verification Results\
   ![Oxford 5k, Paris 6k Patch Verification Results]("images/HardNet/Oxford5k, Paris6k results.png"?raw=true "Oxford 5k, Paris 6k Patch Verification Results")
 
 
