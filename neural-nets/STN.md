@@ -20,19 +20,21 @@
    ![Example](images/STN/stn_example2.png?raw=true "Example") ![Example2](images/STN/stn_example.png?raw=true "Example2")
    * STN structure:
         1. `Localization net`: predicts parameters of the transform `theta`. For 2d case it's 2 x 3 matrix. For 3d case it's 3 x 4 matrix.
-        2. `Grid generator`: Uses predictions of `Localization net` to create create a sampling grid, which is a set of points where the input map should be sampled to produce the transformed output
+        2. `Grid generator`: Uses predictions of `Localization net` to create create a sampling grid, which is a set of points where the input map should be sampled to produce the transformed output.
         3. `Sampler`: Produces the output map sampled from the input feature map at the predicted grid points.
     
 * **Notes**:
     * *Localization net*:
-        * Can take **any** form, but should include the final regression layer that produces transformation parameters `theta`. 
+        * Can take **any** form, but should include the final regression layer that produces transformation parameters `theta`.
+        * Localization net can predict several transformations(`thetas`) for subsequent transformation applied to input image(feature map).  
+        * The final regression layer should be initialised to regress the identity transform (zero weights, identity transform bias).
     * *Grid generator* and *Transforms*: 
         * The transformation can have any parameterised form, provided that it is differentiable with respect to the parameters
         * The most popular is just a 2d affine transform: \
          ![2dAffine](images/STN/stn_2d_spatial_transform.png?raw=true "2D Affine Transform") 
          or particularly an attention mechanism: \
           ![Attention](images/STN/stn_attention_thetas.png?raw=true "Attention")  
-        * The source/target transformation and sampling is equivalent to the standard texture mapping and coordinates used in graphics
+        * The source/target transformation and sampling is equivalent to the standard texture mapping and coordinates used in graphics.
     * *Sampler*:
         * **The key why STN works.** They introduced a (sub-)differentiable sampling mechanism that allows loss gradients to flow back not only to the "input" feature map, but also to the sampling grid coordinates, and therefore back to the transformation parameters θ and *Localisation Net*.
          
