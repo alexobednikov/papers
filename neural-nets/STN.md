@@ -14,22 +14,20 @@
 
 * **How:**
    * `Spatial Transformer` allows the spatial manipulation of the data (any feature map or particularly input image). This differentiable module can be inserted into any CNN, giving neural networks the ability to actively spatially transform feature maps, conditional on the feature map itself.
-   * The action of the spatial transformer is conditioned on individual data samples, with the appropriate behaviour learnt during train- ing for the task in question.
-   * No additional supervision or modification to the optimisation process is required.
-   * Spatial manipulation consist of: cropping, translation, rotation, scale, and skew.
+   * The action of the spatial transformer is conditioned on individual data samples, with the appropriate behavior learned during training for the task in question.
+   * No additional supervision or modification of the optimization process is required.
+   * Spatial manipulation consists of cropping, translation, rotation, scale, and skew.
    ![Example](images/STN/stn_example2.png?raw=true "Example") ![Example2](images/STN/stn_example.png?raw=true "Example2")
    * STN structure:
-        1. `Localization net`: predicts parameters of the transform `theta`. For 2d case it's 2 x 3 matrix. For 3d case it's 3 x 4 matrix.
-        2. `Grid generator`: Uses predictions of `Localization net` to create create a sampling grid, which is a set of points where the input map should be sampled to produce the transformed output.
+        1. `Localization net`: predicts parameters of the transform `theta`. For 2d case, it's 2 x 3 matrix. For 3d case, it's 3 x 4 matrix.
+        2. `Grid generator`: Uses predictions of `Localization net` to create a sampling grid, which is a set of points where the input map should be sampled to produce the transformed output.
         3. `Sampler`: Produces the output map sampled from the input feature map at the predicted grid points.
     
 * **Notes**:
-    * *Localization net*:
-        * Can take **any** form, but should include the final regression layer that produces transformation parameters `theta`.
-        * Localization net can predict several transformations(`thetas`) for subsequent transformation applied to input image(feature map).  
-        * The final regression layer should be initialised to regress the identity transform (zero weights, identity transform bias).
+    * Localization net can predict several transformations(`thetas`) for subsequent transformation applied to the input image(feature map).  
+        * The final regression layer should be initialized to regress the identity transform (zero weights, identity transform bias).
     * *Grid generator* and *Transforms*: 
-        * The transformation can have any parameterised form, provided that it is differentiable with respect to the parameters
+        * The transformation can have any parameterized form, provided that it is differentiable with respect to the parameters
         * The most popular is just a 2d affine transform: \
          ![2dAffine](images/STN/stn_2d_spatial_transform.png?raw=true "2D Affine Transform") 
          or particularly an attention mechanism: \
@@ -37,8 +35,6 @@
         * The source/target transformation and sampling is equivalent to the standard texture mapping and coordinates used in graphics.
     * *Sampler*:
         * **The key why STN works.** They introduced a (sub-)differentiable sampling mechanism that allows loss gradients to flow back not only to the "input" feature map, but also to the sampling grid coordinates, and therefore back to the transformation parameters θ and *Localisation Net*.
-         
-        
               
      
 * **Results:**
