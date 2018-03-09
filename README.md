@@ -2,6 +2,7 @@
 
 This repository contains short summaries of some machine learning papers.
 
+
 ## Added 2018/03/08:
   * ****`ARCHITECTURES`**** ****`ATTENTION`**** [Spatial Transformer Networks](neural-nets/STN.md)
 
